@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id" data-page-title="page_title_register">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Daftarkan Sekarang - Abadi Guru</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400..700&family=Nunito+Sans:wght@400..700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+    darkMode: "class",
+    theme: { extend: {
+        colors: {
+            "primary-container":"#78a886","surface-variant":"#e4e0d8","on-tertiary-fixed-variant":"#554020",
+            "on-tertiary-fixed":"#221a05","secondary-container":"#f0e8db","surface-dim":"#dbd7cf",
+            "surface-container-low":"#f5f1ea","surface-container-highest":"#e4e0d8","tertiary":"#705c30",
+            "surface-tint":"#4a7c59","error":"#b83230","surface-container-lowest":"#ffffff",
+            "primary-fixed-dim":"#8ecf9e","on-tertiary-container":"#554020","error-container":"#ffdad8",
+            "on-primary-fixed":"#002110","inverse-surface":"#2e3230","on-primary":"#ffffff",
+            "on-surface-variant":"#4a4e4a","on-tertiary":"#ffffff","surface":"#faf6f0",
+            "outline-variant":"#c4c8bc","outline":"#74796e","on-primary-fixed-variant":"#2a6038",
+            "on-surface":"#2e3230","inverse-primary":"#8ecf9e","inverse-on-surface":"#f5f0e8",
+            "surface-container":"#f0ece4","tertiary-container":"#c4a66a","background":"#faf6f0",
+            "secondary-fixed":"#f0e8db","on-secondary-fixed":"#1e1a13","primary-fixed":"#c8e8d0",
+            "tertiary-fixed":"#f8e0a8","secondary":"#6b6358","surface-bright":"#faf6f0",
+            "surface-container-high":"#eae6de","secondary-fixed-dim":"#d4ccbf","on-secondary":"#ffffff",
+            "tertiary-fixed-dim":"#dcc48e","on-error":"#ffffff","on-secondary-container":"#5e5548",
+            "on-error-container":"#690005","on-background":"#2e3230","on-secondary-fixed-variant":"#4a4538",
+            "primary":"#4a7c59","on-primary-container":"#d8f0de"
+        },
+        borderRadius: { "DEFAULT":"0.5rem","lg":"1rem","xl":"1.5rem","full":"9999px" },
+        fontFamily: { "headline":["Literata","serif"],"body":["Nunito Sans","sans-serif"],"label":["Nunito Sans","sans-serif"] }
+    }}
+}
+</script>
+<style>
+    body { font-family:'Nunito Sans',sans-serif; background-color:#faf6f0; color:#2e3230; line-height:1.6; }
+    h1,h2,h3,h4,h5,h6 { font-family:'Literata',serif; }
+    .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; }
+    #mobile-menu { max-height:0; overflow:hidden; transition:max-height .35s ease; }
+    #mobile-menu.open { max-height:320px; }
+</style>
+</head>
+<body class="bg-background text-on-background antialiased flex flex-col min-h-screen pt-[72px]">
+
+<!-- Navbar -->
+<header class="fixed top-0 w-full z-50 bg-[#faf6f0]/90 backdrop-blur-md border-b border-[#4a7c59]/10 shadow-sm">
+<div class="flex justify-between items-center px-6 py-3.5 max-w-7xl mx-auto">
+    <a class="flex items-center gap-2" href="index.html">
+        <img src="assets/abadiguru_logo_BT.png" alt="Abadi Guru Logo" class="h-12 md:h-14 dark:hidden"/>
+        <img src="assets/abadiguru_logo_WT.png" alt="Abadi Guru Logo" class="hidden dark:block h-12 md:h-14"/>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 font-['Nunito_Sans'] font-medium text-sm tracking-wide">
+        <a class="text-slate-600 hover:text-[#4a7c59] hover:bg-[#4a7c59]/5 rounded-lg transition-all px-2 py-1" href="index.html" data-i18n="nav_home">Beranda</a>
+        <a class="text-slate-600 hover:text-[#4a7c59] hover:bg-[#4a7c59]/5 rounded-lg transition-all px-2 py-1" href="tos.html" data-i18n="nav_tos">Syarat &amp; Ketentuan</a>
+        <a class="text-[#4a7c59] font-bold border-b-2 border-[#4a7c59] pb-0.5 px-2 py-1" href="hubungi kami.html" data-i18n="nav_register">Daftarkan Sekarang</a>
+    </nav>
+    <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1.5 bg-[#4a7c59]/5 px-3 py-1.5 rounded-lg border border-[#4a7c59]/20 text-sm">
+            <button onclick="changeLanguage('id')" data-lang="id" class="lang-btn font-bold text-[#4a7c59] hover:opacity-80 transition-opacity">ID</button>
+            <span class="text-slate-300">|</span>
+            <button onclick="changeLanguage('en')" data-lang="en" class="lang-btn text-slate-500 font-normal hover:text-[#4a7c59] transition-colors">EN</button>
+            <span class="text-slate-300">|</span>
+            <button onclick="changeLanguage('zh')" data-lang="zh" class="lang-btn text-slate-500 font-normal hover:text-[#4a7c59] transition-colors">ZH</button>
+        </div>
+        <a class="hidden md:inline-flex items-center justify-center px-5 py-2 bg-primary text-on-primary rounded-xl font-label font-bold text-sm tracking-wide hover:bg-on-primary-fixed-variant transition-colors shadow-sm active:scale-95" href="hubungi kami.html" data-i18n="nav_cta">Daftar GOR</a>
+        <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden text-primary p-2 hover:bg-primary/10 rounded-lg transition-colors">
+            <span class="material-symbols-outlined" id="mobile-menu-icon">menu</span>
+        </button>
+    </div>
+</div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="md:hidden bg-[#faf6f0]/95 backdrop-blur-md border-t border-[#4a7c59]/10">
+    <nav class="flex flex-col px-6 py-4 gap-1 font-['Nunito_Sans'] font-medium text-sm">
+        <a class="text-slate-600 py-3 px-3 rounded-lg hover:bg-[#4a7c59]/5 hover:text-[#4a7c59] transition-all" href="index.html" data-i18n="nav_home">Beranda</a>
+        <a class="text-slate-600 py-3 px-3 rounded-lg hover:bg-[#4a7c59]/5 hover:text-[#4a7c59] transition-all" href="tos.html" data-i18n="nav_tos">Syarat &amp; Ketentuan</a>
+        <a class="text-[#4a7c59] font-bold py-3 px-3 rounded-lg" href="hubungi kami.html" data-i18n="nav_register">Daftarkan Sekarang</a>
+        <a class="mt-2 inline-flex items-center justify-center px-6 py-3 bg-primary text-on-primary rounded-xl font-label font-bold text-sm hover:bg-on-primary-fixed-variant transition-colors" href="hubungi kami.html" data-i18n="nav_cta">Daftar GOR</a>
+    </nav>
+</div>
+</header>
+
+<!-- Main Content -->
+<main class="flex-grow pt-16 pb-24 px-6 relative">
+    <div class="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-primary-container/20 rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+    <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+            <h1 class="font-headline text-4xl md:text-5xl font-bold text-primary mb-4 tracking-tight" data-i18n="form_h1">Daftarkan GOR Anda Sekarang!</h1>
+        </div>
+        <!-- Contact Info -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+            <a href="https://wa.me/628131818637" target="_blank" rel="noopener" class="flex flex-col items-center gap-3 bg-white border border-[#4a7c59]/15 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-[#4a7c59]/40 transition-all group">
+                <div class="w-12 h-12 bg-[#25D366]/10 rounded-xl flex items-center justify-center">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-[#25D366]"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.528 5.855L.057 23.625c-.093.35.006.72.255.969.194.196.453.3.718.3.084 0 .17-.011.254-.034l5.906-1.497A11.948 11.948 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.786 9.786 0 01-5.002-1.373l-.356-.213-3.704.939.996-3.611-.234-.371A9.761 9.761 0 012.182 12C2.182 6.58 6.58 2.182 12 2.182c5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/></svg>
+                </div>
+                <div class="text-center">
+                    <p class="text-xs text-slate-400 uppercase tracking-widest font-label mb-1">WhatsApp</p>
+                    <p class="font-body font-semibold text-[#2e3230] group-hover:text-[#4a7c59] transition-colors">+62 813 1818 637</p>
+                </div>
+            </a>
+            <a href="mailto:ask@abadi.guru" class="flex flex-col items-center gap-3 bg-white border border-[#4a7c59]/15 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-[#4a7c59]/40 transition-all group">
+                <div class="w-12 h-12 bg-[#4a7c59]/10 rounded-xl flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[#4a7c59] text-2xl">mail</span>
+                </div>
+                <div class="text-center">
+                    <p class="text-xs text-slate-400 uppercase tracking-widest font-label mb-1">Email</p>
+                    <p class="font-body font-semibold text-[#2e3230] group-hover:text-[#4a7c59] transition-colors">ask@abadi.guru</p>
+                </div>
+            </a>
+            <a href="https://www.abadi.guru" target="_blank" rel="noopener" class="flex flex-col items-center gap-3 bg-white border border-[#4a7c59]/15 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-[#4a7c59]/40 transition-all group">
+                <div class="w-12 h-12 bg-[#4a7c59]/10 rounded-xl flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[#4a7c59] text-2xl">language</span>
+                </div>
+                <div class="text-center">
+                    <p class="text-xs text-slate-400 uppercase tracking-widest font-label mb-1">Website</p>
+                    <p class="font-body font-semibold text-[#2e3230] group-hover:text-[#4a7c59] transition-colors">www.abadi.guru</p>
+                </div>
+            </a>
+        </div>
+        <!-- Social Media -->
+        <div class="flex justify-center gap-4 mb-12">
+            <a href="https://www.instagram.com/abadi.guru/" target="_blank" rel="noopener" class="flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 rounded-xl hover:border-[#4a7c59] hover:bg-[#4a7c59]/5 transition-all group">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-slate-500 group-hover:text-[#4a7c59] transition-colors"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <span class="text-sm font-label font-semibold text-slate-500 group-hover:text-[#4a7c59] transition-colors">Instagram</span>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61583375585874" target="_blank" rel="noopener" class="flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 rounded-xl hover:border-[#4a7c59] hover:bg-[#4a7c59]/5 transition-all group">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-slate-500 group-hover:text-[#4a7c59] transition-colors"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                <span class="text-sm font-label font-semibold text-slate-500 group-hover:text-[#4a7c59] transition-colors">Facebook</span>
+            </a>
+            <a href="https://www.tiktok.com/@abadi.guru" target="_blank" rel="noopener" class="flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 rounded-xl hover:border-[#4a7c59] hover:bg-[#4a7c59]/5 transition-all group">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-slate-500 group-hover:text-[#4a7c59] transition-colors"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                <span class="text-sm font-label font-semibold text-slate-500 group-hover:text-[#4a7c59] transition-colors">TikTok</span>
+            </a>
+        </div>
+        <div class="max-w-2xl mx-auto">
+            <div class="bg-surface-container-lowest rounded-[32px] p-8 md:p-10 shadow-[0_8px_30px_rgba(46,50,48,0.06)] border border-outline-variant/20 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-primary-fixed/30 rounded-bl-[100px] pointer-events-none -z-10"></div>
+                <h2 class="font-headline text-2xl font-bold text-on-surface mb-8" data-i18n="form_h2">Lengkapi Data Berikut</h2>
+                <form class="space-y-6" action="https://formspree.io/f/xbdqzawl" method="POST">
+                    <input type="hidden" name="_replyto" value="davebazzzs@gmail.com"/>
+                    <div class="space-y-2">
+                        <label class="font-label text-sm font-semibold text-on-surface-variant block" for="nama_lengkap" data-i18n="form_nama_lbl">Nama Lengkap</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">person</span>
+                            <input class="w-full bg-surface-container-low border border-outline-variant/50 text-on-surface text-base rounded-[12px] focus:ring-2 focus:ring-primary focus:border-primary block pl-12 pr-4 py-4 transition-all duration-200 placeholder-on-surface-variant/50 font-body" id="nama_lengkap" name="nama_lengkap" data-i18n-placeholder="ph_nama" placeholder="Masukkan nama lengkap Anda" type="text" required/>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-label text-sm font-semibold text-on-surface-variant block" for="nama_gor" data-i18n="form_gor_lbl">Nama GOR / Fasilitas</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">stadium</span>
+                            <input class="w-full bg-surface-container-low border border-outline-variant/50 text-on-surface text-base rounded-[12px] focus:ring-2 focus:ring-primary focus:border-primary block pl-12 pr-4 py-4 transition-all duration-200 placeholder-on-surface-variant/50 font-body" id="nama_gor" name="nama_gor" data-i18n-placeholder="ph_gor" placeholder="Contoh: GOR Jaya Sakti" type="text" required/>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-label text-sm font-semibold text-on-surface-variant block" for="nomor_wa" data-i18n="form_wa_lbl">Nomor WhatsApp Aktif</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">call</span>
+                            <input class="w-full bg-surface-container-low border border-outline-variant/50 text-on-surface text-base rounded-[12px] focus:ring-2 focus:ring-primary focus:border-primary block pl-12 pr-4 py-4 transition-all duration-200 placeholder-on-surface-variant/50 font-body" id="nomor_wa" name="nomor_wa" data-i18n-placeholder="ph_wa" placeholder="08xx xxxx xxxx" type="tel" required/>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="font-label text-sm font-semibold text-on-surface-variant block" for="catatan" data-i18n="form_notes_lbl">Catatan Tambahan (Opsional)</label>
+                        <textarea class="w-full bg-surface-container-low border border-outline-variant/50 text-on-surface text-base rounded-[12px] focus:ring-2 focus:ring-primary focus:border-primary block p-4 transition-all duration-200 placeholder-on-surface-variant/50 font-body resize-none" id="catatan" name="catatan" data-i18n-placeholder="ph_notes" placeholder="Informasi tambahan mengenai fasilitas Anda..." rows="3"></textarea>
+                    </div>
+                    <div class="pt-4">
+                        <button class="w-full bg-[#25D366] text-white font-bold font-body text-lg py-4 px-8 rounded-[12px] shadow-[0_4px_14px_rgba(37,211,102,0.3)] hover:bg-[#20bd5a] hover:shadow-[0_6px_20px_rgba(37,211,102,0.4)] transition-all duration-300 flex justify-center items-center gap-3" type="submit">
+                            <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">send</span>
+                            <span data-i18n="form_submit">Kirim Pendaftaran</span>
+                        </button>
+                        <p class="text-center text-xs text-on-surface-variant mt-4 font-body" data-i18n="form_note">Tim kami akan menghubungi Anda melalui WhatsApp dalam waktu 1x24 jam.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full bg-[#0f1a14] text-white">
+<div class="max-w-7xl mx-auto px-8 pt-16 pb-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <div class="flex flex-col gap-5">
+            <img src="assets/abadiguru_logo_WT.png" alt="Abadi Guru" class="h-10 object-contain object-left"/>
+            <p class="text-white/50 text-sm leading-relaxed font-body" data-i18n="footer_tagline">Platform manajemen GOR terdepan untuk mendukung kemajuan olahraga Indonesia.</p>
+            <div>
+                <p class="text-white/40 text-xs uppercase tracking-widest font-label mb-3" data-i18n="footer_follow">Ikuti Kami</p>
+                <div class="flex gap-3">
+                    <a href="https://www.instagram.com/abadi.guru/" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#4a7c59] transition-colors flex items-center justify-center" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61583375585874" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#4a7c59] transition-colors flex items-center justify-center" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@abadi.guru" target="_blank" rel="noopener" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#4a7c59] transition-colors flex items-center justify-center" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col gap-4">
+            <p class="text-white/40 text-xs uppercase tracking-widest font-label" data-i18n="footer_pages_title">Halaman</p>
+            <nav class="flex flex-col gap-2 font-body text-sm">
+                <a class="text-white/60 hover:text-white transition-colors" href="index.html" data-i18n="nav_home">Beranda</a>
+                <a class="text-white/60 hover:text-white transition-colors" href="tos.html" data-i18n="nav_tos">Syarat &amp; Ketentuan</a>
+                <a class="text-white/60 hover:text-white transition-colors" href="hubungi kami.html" data-i18n="nav_register">Daftarkan Sekarang</a>
+            </nav>
+        </div>
+        <div class="flex flex-col gap-4">
+            <p class="text-white/40 text-xs uppercase tracking-widest font-label" data-i18n="footer_contact_title">Hubungi Kami</p>
+            <div class="flex flex-col gap-3 font-body text-sm">
+                <div>
+                    <p class="text-[#4a7c59] text-xs font-label uppercase tracking-wider mb-1">WhatsApp</p>
+                    <a class="text-white/60 hover:text-white transition-colors" href="https://wa.me/628131818637" target="_blank" rel="noopener">+62 813 1818 637</a>
+                </div>
+                <div>
+                    <p class="text-[#4a7c59] text-xs font-label uppercase tracking-wider mb-1">Email</p>
+                    <a class="text-white/60 hover:text-white transition-colors" href="mailto:ask@abadi.guru">ask@abadi.guru</a>
+                </div>
+                <div>
+                    <p class="text-[#4a7c59] text-xs font-label uppercase tracking-wider mb-1">Website</p>
+                    <a class="text-white/60 hover:text-white transition-colors" href="https://www.abadi.guru" target="_blank" rel="noopener">www.abadi.guru</a>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col gap-4">
+            <p class="text-white/40 text-xs uppercase tracking-widest font-label" data-i18n="footer_sponsored">Didukung Oleh</p>
+            <a href="https://www.alfalearning.online" target="_blank" rel="noopener" class="bg-white rounded-2xl p-5 flex flex-col items-center gap-3 hover:shadow-lg transition-shadow">
+                <img src="assets/alfa_logo.png" alt="Alfa Learning Online" class="h-28 object-contain"/>
+                <p class="text-center text-xs text-slate-500 font-body leading-relaxed" data-i18n="footer_sponsor_desc">Platform edukasi digital terpercaya untuk generasi Indonesia.</p>
+            </a>
+        </div>
+    </div>
+    <div class="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-white/30 text-xs font-label" data-i18n="footer_copyright">© 2026 Abadi Guru Indonesia. Rooted in Sport.</p>
+        <div class="flex gap-6 font-label text-xs uppercase tracking-widest">
+            <a class="text-white/30 hover:text-white/60 transition-colors" href="#" data-i18n="footer_privacy">Kebijakan Privasi</a>
+            <a class="text-white/30 hover:text-white/60 transition-colors" href="#" data-i18n="footer_help">Bantuan</a>
+            <a class="text-white/30 hover:text-white/60 transition-colors" href="#" data-i18n="footer_partner">Kemitraan</a>
+        </div>
+    </div>
+</div>
+</footer>
+
+<script src="assets/i18n.js"></script>
+<script>
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('mobile-menu-icon');
+    menu.classList.toggle('open');
+    icon.textContent = menu.classList.contains('open') ? 'close' : 'menu';
+}
+</script>
+</body>
+</html>
